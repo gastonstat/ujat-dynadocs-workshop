@@ -1,0 +1,47 @@
+---
+title: "Getting Started with Rmd Files"
+output: html_document
+---
+
+This a simple document that illustrates how to use Rmd files.
+
+Here's a first __code chunk__ using the data set `cars` that comes in R
+
+```{r}
+summary(cars)
+```
+
+Here's another chunk:
+
+```{r}
+# matrix of correlation
+cor(cars)
+```
+
+
+### Plots
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+### Inline code
+
+You can also include __inline code__. For example, `cars` has `r nrow(cars)`
+rows. The average speed is `r mean(cars$speed)`.
+
+
+### Some Equations
+
+Likewise, it is possible to include equations. We can write a model like this:
+$$
+dist = f(speed)
+$$
+
+
+
