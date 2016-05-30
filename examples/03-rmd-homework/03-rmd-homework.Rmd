@@ -1,0 +1,120 @@
+---
+title: "Statistics 101 - Homework 1"
+header-includes: \usepackage{float}
+output: pdf_document
+---
+
+```{r, echo=FALSE}
+# disable the formatting of numbers to avoid error message
+knitr::knit_hooks$set(inline = as.character)
+```
+
+### Name: ____________________________  Class Number: __________
+
+\bigskip
+
+__1)__ About the Mode: indicate whether the following statements are True or False
+
+a. The mode is the most frequent value in a distribution.
+b. There cannot be more than one mode per distribution.
+c. The mode is influenced by extreme values.
+d. The mode's value can change by organizing the data into different categories.
+e. The mode is only applicable to qualitative variables.
+
+\bigskip
+
+__2)__ About the Median: indicate whether the following statements are True or False
+
+a. The median is the central value with 50% of the values larger than it and 50% smaller.
+b. There can be more than one median per distribution.
+c. The median is affected by extreme values.
+d. The median's value is rather stable even when data are organized into different categories.
+e. The median is applicable to both qualitative and quantitative variables.
+
+\bigskip
+
+__3)__ About the Average: indicate whether the following statements are True or False
+
+a. The average is the sum of all entries divided by half the number of entries.
+b. There is only one average per distribution.
+c. The average is not influenced by extreme values.
+d. The average is applicable to quantitative variables only.
+e. The average is always greater than the median.
+
+\bigskip
+
+__4)__ True or False. If a distribution is skewed to the right,
+
+a. the mean is less than the median
+b. the mean and the median are equal
+c. the mean is greater than the median
+
+\bigskip
+
+
+__5)__ The highway mileages of 13 compact cars are:
+```{r, echo=FALSE, results='asis', message=FALSE}
+library(xtable)
+car_name <- c(
+  'Aston Martin Vanquish', 'Audi TT Coupe',
+  'BMW 325CI', 'BMW 330CI', 'BMW M3', 'Jaguar XK8', 'Jaguar XKR', 
+  'Lexus SC 430', 'Mini Cooper', 'Mitsubishi Eclipse', 
+  'Mitsubishi Spyder', 'Porsche Cabriolet', 'Porsche Turbo 911')
+
+mileage <- c(19, 29, 27, 28, 23, 26, 23, 23, 32, 31, 29, 26, 22)
+
+carsdf <- data.frame(model = car_name, mileage = mileage)
+xtb <- xtable(carsdf)
+print(xtb, comment = FALSE, table.placement = 'H', type = 'latex')
+```
+
+a. Calculate the median:
+b. Calculate the mode:
+c. Calculate the mean:
+d. Calculate the range:
+e. Calculate $Q_1$ (the 1st quartile)
+f. Calculate $Q_3$ (the 3rd quartile)
+g. Calculate the Interquartile Range (IQR):
+h. Calculate the Variance Range (Var):
+i. Calculate the Standard Deviation (SD):
+
+
+\bigskip
+
+```{r echo = FALSE}
+# number of employees
+clerks <- 5
+juniors <- 2
+
+# salaries of employees
+clerk_salary <- 35000
+junior_salary <- 80000
+owner_salary <- 320000
+salaries <- c(rep(clerk_salary, clerks), rep(junior_salary, juniors), owner_salary)
+
+meanSalary <- mean(salaries)
+medianSalary <- median(salaries)
+```
+
+__6)__ A small accounting firm pays each of its `r clerks` clerks $`r clerk_salary`, 
+$`r juniors` junior accountants `r junior_salary` each, and the firm's owner 
+ $`r owner_salary`.
+
+a. What is the mean salary paid at this firm?
+b. How many of the employees earn less than the mean?
+c. What is the median salary?
+
+\bigskip
+
+```{r echo = FALSE}
+owner_salary <- 455000
+salaries <- c(rep(clerk_salary, clerks), rep(junior_salary, juniors), owner_salary)
+mean_salary <- mean(salaries)
+median_salary <- median(salaries)
+```
+
+__7)__ The firm in the previous question gives no raises to the clerks and junior accountants, while the owner's take increases to $`r owner_salary`.
+
+a. How does this change affect the mean?
+b. How does it affect the median?
+
