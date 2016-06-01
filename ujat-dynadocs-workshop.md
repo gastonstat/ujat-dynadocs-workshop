@@ -16,9 +16,7 @@ copy-pasting, manual tweaks, constant adjustment of visual aspect, etc.
 
 In this workshop we will start with a quick introduction of the Markdown 
 syntax. Then we will describe how to create textual reports with the ecosystem 
-of authoring tools in R (e.g. kintr, rmarkdown, shiny). 
-
-From Rmd files to HTML, PDF
+of authoring tools in R (e.g. knitr, rmarkdown, shiny). 
 
 
 ## Goals
@@ -75,7 +73,7 @@ of creating documents.
 - Introduction to Markdown
 	+ Markdown syntax
 	+ Online editor: [http://markdownlivepreview.com/](http://markdownlivepreview.com/)
-- Getting to know Rmd files (and Rmarkdown package)
+- Getting to know Rmd files (and the Rmarkdown package)
 
 ### Session 2
 
@@ -84,37 +82,38 @@ of creating documents.
 - Inline code
 - Graphics
 - Tables
-- From `Rmd` to html, pdf, word
+- From `.Rmd` to html, pdf, word
 
 ### Session 3
 
-- Rnw files and LaTeX
-- Introduction to Open Science Framework [https://osf.io/](https://osf.io/)
-- Create your first project in OSF
+- Creating Slides
+- HTML slides: ioslides, slidy, revealjs
+- Beamer slides
+- `Rpres` files
 
 ### Session 4
 
+- Rnw files and LaTeX
 - Working with multiple files
 - Code externalization
-- knitr include sections
+- knitr `children`
 - Modularizing a project
 
 ### Session 5
 
 - Interactive documents with shiny
-- Creating Slides
-- Beamer slides
-- HTML slides: IOslides, DZslides
-- `Rpres` files
+- Reactive objects
+- Widgets
 
 ### Session 6
 
 - Where to go from here?
+- Introduction to Open Science Framework [https://osf.io/](https://osf.io/)
+- Create your first project in OSF
 - Wrapping up
 - Closing remarks
 - Certificates
 - Workshop Ends
-
 
 
 ## About the Instructor

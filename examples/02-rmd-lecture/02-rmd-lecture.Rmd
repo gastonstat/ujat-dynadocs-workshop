@@ -24,7 +24,7 @@ grep('dog', animals, value = TRUE)
 
 Animals containing letter `d`
 ```{r, eval=FALSE}
-# 'd'
+# match 'd'
 grep('d', animals, value = TRUE)
 ```
 
@@ -33,7 +33,7 @@ grep('d', animals, value = TRUE)
 
 The vertical bar is the __OR__ operator. Animals with letters `c` _OR_ `d`
 ```{r, eval=FALSE}
-# 'c' or 'd'
+# match 'c' or 'd'
 grep('c|d', animals, value = TRUE)
 ```
 
@@ -48,7 +48,7 @@ grep('.', animals, value = TRUE)
 
 Character classes are specified inside brackets `[]`. For example, here's how to get animals with letters `c` or `d`
 ```{r, eval=FALSE}
-# 'c' or 'd'
+# match 'c' or 'd'
 grep('[cd]', animals, value = TRUE)
 ```
 
