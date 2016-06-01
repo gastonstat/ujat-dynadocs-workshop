@@ -1,0 +1,264 @@
+---
+title: "HW: Flow Control Structures and Functions with R"
+author: "Prof. Sanchez"
+date: "April 17, 2015"
+output: pdf_document
+---
+
+## Introduction
+
+This assignment has two purposes:
+
+a) to familiarize you with control flow structures in R 
+b) to introduce you to writing functions in R
+
+
+-----
+
+## Arithmetic average with loops
+
+R provides the function `mean()` that can be applied to calculate the arithmetic 
+mean (i.e. average) of a numeric vector. Here's the formula of the average for a 
+vector $x = (x_1, x_2, \dots, x_n)$
+$$
+\bar{x} = \frac{1}{n} \sum^{n}_{i = 1} x_i
+$$
+
+Use the three types of loops---`for, repeat, while`---to get the average of the 
+numeric vector  `x <- 1:10`
+
+
+```{r, echo=FALSE, eval=FALSE}
+x <- 1:10
+total <- length(x)
+x_sum <- 0
+for (i in seq_along(x)) {
+  x_sum <- x_sum + x[i]
+}
+x_sum / total
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+x <- 1:10
+total <- length(x)
+x_sum <- 0
+i <- 1
+repeat {
+  x_sum <- x_sum + x[i]
+  if (i == total) break
+  i <- i + 1
+}
+x_sum / total
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+x <- 1:10
+total <- length(x)
+x_sum <- 0
+i <- 1
+while (i <= total) {
+  x_sum <- x_sum + x[i]
+  i <- i + 1
+}
+x_sum / total
+```
+
+
+-----
+
+## Area of a circle
+
+For a given circle of radius $r$, the area $A$ is:
+$$
+A = \pi r^2
+$$
+
+Write a function `circle_area()` that calculates the area of a circle. This 
+function must take one argument `radius`. Give `radius` a default value of 1.
+
+```{r, echo=FALSE}
+circle_area <- function(radius = 1) {
+  pi * radius^2
+}
+```
+
+For example:
+```{r}
+# default (radius 1)
+circle_area()
+
+# radius 3
+circle_area(radius = 3)
+```
+
+
+## Area of a cylinder
+
+For a given cylinder of radius $r$ and height $h$ the area $A$ is:
+$$
+A = 2 \pi r h + 2 \pi r^2
+$$
+
+Notice that the formula of the area of a cylinder includes the area of a circle: 
+$\pi r^2$. Write a function `cyl_area()`, that calls `circle_area()`, to compute 
+the area of a cylinder. This function must take two arguments: `radius` and `height`. 
+Give both arguments a default value of 1.
+
+```{r, echo=FALSE}
+cyl_area <- function(radius = 1, height = 1) {
+  lateral_area <- 2 * pi * radius * height
+  base_areas <- 2 * circle_area(radius)
+  lateral_area + base_areas
+}
+```
+
+For instance:
+```{r}
+# default (radius 1, height 1)
+cyl_area()
+
+# radius 2, height 3
+cyl_area(radius = 2, height = 3)
+```
+
+
+## Volume of a cylinder
+
+For a given cylinder of radius $r$ and height $h$ the volume $V$ is:
+$$
+V = \pi r^2 h
+$$
+
+Write a function `cyl_volume()`, that calls `circle_area()`, to compute the 
+volume of a cylinder. This function must take two arguments: `radius` and `height`. 
+Give both arguments a default value of 1.
+
+```{r, echo=FALSE}
+cyl_volume <- function(radius = 1, height = 1) {
+  circle_area(radius) * height
+}
+```
+
+For example:
+```{r}
+# default (radius 1, height 1)
+cyl_volume()
+
+cyl_volume(radius = 3, height = 10)
+cyl_volume(height = 10, radius = 3)
+```
+
+
+-----
+
+## Even number
+
+Write a function `is_even()` that determines whether a number is even 
+(i.e. multiple of 2). If the inpute number is even, the output should be `TRUE`. 
+If the input number is odd, the output should be `FALSE`. If the input is not a 
+number, the output should be `NA` 
+
+```{r, echo = FALSE}
+is_even <- function(x) {
+  if (is.numeric(x)) {
+    return(x %% 2 == 0)
+  } else {
+    return(NA)
+  }
+}
+```
+
+For example:
+```{r}
+# even number
+is_even(10)
+
+# odd number
+is_even(33)
+
+# not a number
+is_even('a')
+```
+
+
+## Odd number
+
+Use your function `is_even()` to write a function `is_odd()` that determines 
+if a number is odd (i.e. not a multiple of 2). If a number is odd, the output 
+should be `TRUE`; if a number is even the output should be `FALSE`; if the 
+input is not a number the output should be `NA`
+
+```{r, echo = FALSE}
+is_odd <- function(x) {
+  !is_even(x)
+}
+```
+
+For example:
+```{r}
+# odd number
+is_odd(1)
+
+# even number
+is_odd(4)
+
+# not a number
+is_odd('a')
+```
+
+
+-----
+
+## Converting Miles to other units
+
+The table below shows the different formulas for converting miles (mi) into other scales:
+
+| Units   | Formula         |
+| ------- | --------------- |
+| Inches  | mi x 63360      |
+| Feet    | mi x 5280       |
+| Yards   | mi x 1760       |
+| Meters  | mi / 0.00062137 |
+| Kms     | mi / 0.62137    |
+
+Write the following five functions for each type of conversion. Each function 
+must take one argument `x` with default value: `x = 1`.
+
+- `miles2inches()`
+- `miles2feet()`
+- `miles2yards()`
+- `miles2meters()`
+- `miles2kms()`
+
+```{r, echo = FALSE}
+miles2inches <- function(x = 1) {
+  x * 63360
+}
+
+miles2feet <- function(x = 1) {
+  x * 5280
+}
+
+miles2yards <- function(x = 1) {
+  x * 1760
+}
+
+miles2meters <- function(x = 1) {
+  x / 0.00062137
+}
+
+miles2kms <- function(x = 1) {
+  x / 0.62137
+}
+```
+
+For example: 
+```{r}
+miles2inches(2)
+miles2feet(2)
+miles2yards(2)
+miles2meters(2)
+miles2kms(2)
+```
