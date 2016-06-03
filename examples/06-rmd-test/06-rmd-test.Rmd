@@ -1,0 +1,298 @@
+---
+title: "Statistics 101, Midterm Test"
+date: "Spring 2016, Prof. Sanchez"
+header-includes: 
+  - \usepackage{float}
+  - \usepackage{graphicx}
+output: pdf_document
+---
+
+### Name: ________________________  SID: _________ Section: ____
+
+
+### Instructions
+
+- The exam is closed book and will be 75 minutes long.
+- You are allowed to use a calculator that cannot communicate with any other device (no phones!).
+- A cheat cheet with formulas is provided (attached in last page).
+- A Normal Z-table is provided (attached in last page).
+- Please SHOW YOUR WORK. No work, NO credit.
+- When working with numbers containing decimal digits, use at least two decimal places.
+- If you get stuck on a question, move on and come back if you have time.
+- We will only consider answers in pen for regrading.
+- You must not discuss the exam with anyone who is schedule to take the exam at a later time.
+- The test begins on the next page. 
+
+
+Please do not write below this line
+
+\vspace{1cm}
+
+\begin{center}
+ \begin{tabular}{c c c} 
+ Problem & Maximum score & Score achieved \\
+ \hline
+ 1  &  8  &   \\ 
+ 2  & 24  &   \\
+ 3  & 20  &   \\
+ 4  & 30  &   \\
+ 5  & 10  &   \\
+ 6  &  8  &   \\
+ \hline
+ Total & 100 &   \\
+\end{tabular}
+\end{center}
+
+\newpage
+
+__1)__ Look at the two histograms below. Each involves the same number of data. The data are all whole (i.e. integer) numbers, so the height of each bar represents the number of values equal to the corresponding midpoint shown on the horizontal axis. $_{8 pts}$
+
+```{r fig.width=6, fig.height=5, echo=FALSE}
+library(png)
+library(grid)
+img <- readPNG('comparing_two_histograms_test1a.png')
+grid.raster(img)
+```
+
+a. What can you say about their shapes, and measures of center (average and median)? Explain. $_{[4]}$
+\vspace{5cm}
+b. What can you say about their standard deviations? Which one is greater? Or are they the same? Explain. (you don't need to make any computations) $_{[4]}$
+
+\newpage
+
+```{r, echo=FALSE}
+library(xtable)
+group_a = c(14, 20, 35, 5, 0)
+group_b = c(22, 9, 17, 14, 12)
+M = cbind(group_a, group_b)
+means <- apply(M, 2, mean)
+medians <- apply(M, 2, median)
+aux <- sqrt((nrow(M) - 1) / nrow(M))
+sds <- aux * apply(M, 2, sd)
+```
+
+__2)__ The length of time a person spends waiting in a physician's office for an appointment can be a frustrating experience. The results below are the responses of internists from two multispecialty group practices to the following question: ``When patients arrive for midmorning or midafternoon appointments, how long do they generally have to wait before they are seen by you?'' The table below contains a sample of the responses in minutes. $_{24 pts}$
+
+```{r, echo=FALSE, results='asis', message=FALSE}
+groups <- cbind.data.frame(A = group_a, B = group_b)
+xtb <- xtable(groups, digits = 2)
+print(xtb, comment = FALSE, table.placement = 'H', type = 'latex',
+      include.rownames = FALSE)
+```
+
+a. Compute the average, and standard deviation of the internists' responses of group A. $_{[10]}$
+\vspace{8cm}
+b. Compute the average, and standard deviation of the internists' responses of group B. $_{[10]}$
+\newpage
+c. If you had to make an appointment and wanted some assurance that you would not spend more than 30 minutes waiting in the office, which would you choose? Why? $_{[4]}$
+
+\vspace{2cm}
+
+__3)__ In a galaxy far, far away, statisticians from the Galactic Empire are studying the link between height and weight. One of their data sets, shown in the following table, lists the height (in cms) and weight (in kgs) of 10 individuals:  $_{20pts}$
+
+```{r, echo=FALSE, results='asis', message=FALSE}
+library(readr)
+#suppressPackageStartupMessages(library("dplyr"))
+df <- read_csv('starwars.csv')
+xdf <- xtable(df)
+print(xdf, comment = FALSE, table.placement = 'H', type = 'latex',
+      include.rownames = FALSE)
+
+# correction factor for SD
+aux <- sqrt((nrow(df)-1) / nrow(df))
+
+# summary statistics
+avg_height <- mean(df$height)
+sd_height <- round(aux * sd(df$height), 2)
+avg_weight <- mean(df$weight)
+sd_weight <- round(aux * sd(df$weight), 2)
+corr <- round(cor(df$height, df$weight), 2)
+
+# regression
+slope <- round(corr * sd_weight / sd_height, 2)
+intercept <- round(avg_weight - slope * avg_height, 2)
+rms <- sqrt(1 - corr^2) * sd_weight
+reg <- lm(weight ~ height, data = df)
+  
+# boba fett's predicted weight
+boba_height <- 183
+pred_weight <- intercept + slope * boba_height
+```
+
+The summary statistics are:
+
+- average height is `r avg_height` cms; SD of height is `r sd_height` cms
+- average weight is `r avg_weight` kgs; SD of weight is `r sd_weight` kgs
+- r = `r corr`. 
+
+The plot below shows the scatter diagram of height and weight:
+\vspace{2mm}
+
+```{r echo = FALSE, fig.height=4, fig.width=6}
+plot(df$height, df$weight, xlim = c(45, 250), ylim = c(10, 120),
+     axes = FALSE, xlab = 'height (cms)', ylab = 'weight (kgs)',
+     type = 'n')
+axis(side = 1)
+axis(side = 2, las = 1)
+#text(dat$height, dat$weight, labels = dat$name)
+points(df$height, df$weight, pch = 21, cex=2, col = "white",
+       bg = "#888888AA", lwd = 1.5)
+abline(reg, lwd = 2, col = "gray40")
+points(mean(df$height), mean(df$weight), pch = 'X', cex = 1.5)
+```
+
+a. Draw a cross on the scatter plot to indicate the point of averages. $_{[1]}$
+\bigskip
+b. Draw a dashed line on the scatter plot to indicate the _SD line_. $_{[3]}$
+
+
+\newpage
+c. Find the slope of the regression line for predicting weight from height. $_{[3]}$
+\vspace{4cm}
+d. Explain in words what the slope of the regression line tells us. $_{[4]}$
+\vspace{4cm}
+e. Find the intercept of the regression line for predicting weight from height. $_{[3]}$
+\vspace{4cm}
+f. Compute the r.m.s. error for the regression line. $_{[3]}$
+\vspace{4cm}
+g. The Emperor would like to know what is the predicted weight for Boba Fett who has a height of `r boba_height` cms. $_{[3]}$
+
+\newpage
+
+
+\bigskip
+
+```{r, echo=FALSE, results='asis', message=FALSE}
+# updated summary statistics
+upd_avg_height <- 160
+upd_sd_height <- 30
+upd_avg_weight <- 65
+upd_sd_weight <- 27
+upd_corr <- 0.50
+upd_slope <- upd_corr * upd_sd_weight / upd_sd_height
+upd_intercept <- upd_avg_weight - upd_slope * upd_avg_height
+
+# wookie
+wookie_height1 <- 190
+wookie_grows <- 20
+wookie_height2 <- wookie_height1 + wookie_grows
+wookie_weight <- upd_slope * wookie_height2 + upd_intercept
+```
+
+__4)__ The Imperial data scientists have gathered more height and weight data from a total of 800 individuals, obtaining new summary statistics: 
+
+- average height is `r upd_avg_height` cms; SD of height is `r upd_sd_height` cms
+- average weight is `r upd_avg_weight` kgs; SD of weight is `r upd_sd_weight` kgs
+- r = `r upd_corr`. 
+
+When they graph the scatter plot (see below) they discover it is football-shaped. $_{30pts}$
+
+```{r, echo=FALSE, results='asis', message=FALSE}
+# new summary statistics
+new_height <- 130
+above_weight <- 75
+SD_height_away <- (new_height - upd_avg_height) / upd_sd_height
+SD_weight_away <- SD_height_away * upd_corr * upd_sd_weight
+
+new_avg_weight <- upd_avg_weight + SD_weight_away
+
+new_sd_weight <- sqrt(1 - upd_corr^2) * abs(upd_sd_weight)
+
+# z-score
+SU <- (above_weight - new_avg_weight) / new_sd_weight
+perc_above <- 1 - pnorm(SU)
+```
+
+```{r echo = FALSE, fig.height=5, fig.width=6, message=FALSE}
+# updated summary statistics
+library(MASS)
+set.seed(20092005)
+n <- 800
+mu <- c(upd_avg_height, upd_avg_weight)
+Sigma <- matrix(c(upd_sd_height^2, 425, 425, upd_sd_weight^2), 2)
+hw = mvrnorm(n, mu, Sigma)
+weird_wgs <- (hw[,2] < 5 | hw[,2] > 150)
+hw <- hw[!weird_wgs, ]
+hw_reg <- lm(hw[,2] ~ hw[,1])
+#cor(x1[,1], x1[,2])
+
+plot(hw[,1], hw[,2], xlim = c(50, 250),
+     axes = FALSE, xlab = 'height (cms)', ylab = 'weight (kgs)',
+     type = 'n')
+axis(side = 1)
+axis(side = 2, las = 1)
+#text(dat$height, dat$weight, labels = dat$name)
+points(hw[,1], hw[,2], pch = 21, cex=0.75, col = "white",
+       bg = "#555555AA", lwd = 1)
+abline(hw_reg, lwd = 2, col = "gray40")
+#points(mean(df$height), mean(df$weight), col = "tomato", pch = 19)
+```
+
+a. From the updated regression line, if a `r wookie_height1`cms-tall wookie grows `r wookie_grows`cms (i.e. reaching a height of `r wookie_height2`cms), then its weight will become `r wookie_weight`kgs. True or False. Why or why not? $_{[5]}$
+\vspace{14cm}
+b. Of those individuals with height `r new_height` cms, what percentage weigh above `r above_weight` kgs? (No work shown, no credit) $_{[25]}$
+
+
+\newpage
+
+
+### Cheat Sheet
+
+Average:
+$$
+\text{Average of a list = } \frac{\text{sum of entries}}{\text{number of entries}}
+$$
+
+\bigskip
+
+Root Mean Square:
+$$
+r.m.s. = \sqrt{\text{ average of }(entries^2)}
+$$
+
+\bigskip
+
+Standard Deviation:
+$$
+\text{SD = r.m.s. deviation from average}
+$$
+
+\bigskip
+
+Standard Units:
+$$
+SU = \frac{\text{entry - average}}{\text{SD}}
+$$
+
+\bigskip
+
+Correlation coefficient:
+$$
+r = \text{average of }(SUx \times SUy)
+$$
+
+\bigskip
+
+r.m.s. error for the regression line of $y$ on $x$:
+$$
+\sqrt{1 - r^2} \times SDy
+$$
+
+\bigskip
+
+Slope of regression line: 
+$$
+m = r \times \frac{SDy}{SDx}
+$$
+
+\bigskip
+
+Intercept of regression line:
+$$
+b = \text{average of }y - r \times \frac{SDy}{SDx} \times \text{average of } x
+$$
+
+\bigskip
+
+
+\includegraphics[width=0.9\textwidth]{normal-table-fpp.pdf}
