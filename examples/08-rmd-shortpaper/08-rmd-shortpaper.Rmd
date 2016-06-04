@@ -1,0 +1,69 @@
+---
+title: "Behavioral Study of Obedience"
+author: "John Smith"
+date: "1961"
+output: hmlt_output
+---
+
+
+### Abstract
+
+There are little facts about the role of obedience when doing evil actions up 
+until now (1961). Most theories suggest that only very disturbed people do 
+horrible actions if they are ordered to do so. Our experiment tested people's
+obedience to authority. The results showed that most obey all orders given by the 
+authority-figure. The conclusion is that when it comes to people harming others, the 
+situation a person's in is more important than previously thought. In contrary to 
+earlier belief, individual characteristics are less important.
+
+
+
+## Introduction
+
+Current theories focus on personal characteristics to explain wrong-doing and 
+how someone can intentionally harm others. In a survey, professionals such as 
+doctors, psychologist and laymen thought that very few out of a population 
+(1-3%) would harm others if ordered to do so.
+
+In the recent war trial with Adolph Eichmann, he claims to "only have been 
+following orders". The author wanted to test whether this is true, or just 
+a cheap explanation. Can people harm others because they obey the orders? 
+Are good-hearted people able to do this?
+
+The experiment will test whether a person can keep giving electric shocks to 
+another person just because they are told to do so. The expectation is that 
+very few will keep giving shocks, and that most persons will disobey the order.
+
+
+
+## Methods
+
+__Participants.__ 
+There were male 30 participants participating. They were recruited by 
+advertisement in a newspaper and were paid $4.50.
+
+__Instruments.__
+A "shock generator" was used to trick the participants into thinking that they 
+gave shock to another person in another room. The shock generator had switches 
+labeled with different voltages, starting at 30 volts and increasing in 
+15-volt increments all the way up to 450 volts. The switches were also labeled 
+with terms which reminded the participant of how dangerous the shocks were.
+
+
+
+## Results
+
+Of the 40 participants in the study, 26 delivered the maximum shocks. 14 persons 
+did not obey the experimenter and stopped before reaching the highest levels. 
+All 40 participants continued to give shocks up to 300 volts.
+
+
+
+## Discussion/Conclusion
+
+Most of the participants became very agitated, stressed and angry at the 
+experimenter. Many continued to follow orders all the time even though they 
+were clearly uncomfortable. The study shows that people are able to harm others 
+intentionally if ordered to do so. It shows that the situation is far more 
+important than previously believed, and that personal characteristics are less 
+important in such a situation.
