@@ -50,11 +50,22 @@ Make sure you have installed the following software:
 	+ Mac _MacTeX_: [https://tug.org/mactex/mactex-download.html](https://tug.org/mactex/mactex-download.html)
 - __pandoc__ (choose the latest release)
 	+ [https://github.com/jgm/pandoc/releases/tag/1.17.0.2](https://github.com/jgm/pandoc/releases/tag/1.17.0.2)
-- Open Science Framework:
-	+ open an OSF account (it's free): [https://osf.io/](https://osf.io/)
+- __Open Science Framework__:
+	+ create an OSF account (it's free): [https://osf.io/](https://osf.io/)
 
 
 ## Tentative Schedule
+
+|    Time       | Tuesday   | Wednesday   | Thursday   |  Friday    |
+|:-------------:|:---------:|:-----------:|:----------:|:----------:|
+| 08:00 - 09:00 |           | session 2   | session 4  | session 6  |
+| 09:00 - 10:00 |           | session 2   | session 4  | session 6  |
+| 10:00 - 11:00 |           | break       | break      |            |
+| 11:00 - 12:00 |           | session 3   | session 5  |            |
+| 12:00 - 13:00 | session 1 | session 3   | session 5  |            |
+| 13:00 - 14:00 | session 1 |             |            |            |
+
+
 
     Time        Tuesday    Wednesday    Thursday     Friday
 -------------  ---------  -----------  ----------  ----------
@@ -71,9 +82,9 @@ Make sure you have installed the following software:
 - __Houston we have a problem:__ What's wrong with the traditional way
 of creating documents.
 - Introduction to Markdown
-	+ Markdown syntax
-	+ Online editor: [http://markdownlivepreview.com/](http://markdownlivepreview.com/)
-- Getting to know Rmd files (and the Rmarkdown package)
+	+ Basics of Markdown syntax
+	+ Markdown Online editor: [http://markdownlivepreview.com/](http://markdownlivepreview.com/)
+- Getting to know `Rmd` files (and the R package "rmarkdown")
 
 ### Session 2
 
