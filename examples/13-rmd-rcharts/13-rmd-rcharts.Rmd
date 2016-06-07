@@ -1,0 +1,47 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r set-options, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rCharts)
+options(RCHART_WIDTH = 800, RCHART_HEIGHT = 400)
+```
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r, echo=FALSE, cache=TRUE, results='asis', comment=NA}
+p1 <- nPlot(mpg ~ wt, group = 'cyl', data = mtcars, type = 'scatterChart')
+p1$print('chart1', include_assets=TRUE)
+```
+
+
+### Another Plot
+
+```{r, echo=FALSE, cache=TRUE, results='asis', comment=NA}
+hair_eye_male <- subset(as.data.frame(HairEyeColor), Sex == "Male")
+n1 <- nPlot(Freq ~ Hair, group = "Eye", data = hair_eye_male, type = "multiBarChart")
+n1$print("chart3")
+```
+
+
+### My own example
+
+A pie chart:
+
+```{r, echo=FALSE, cache=TRUE, results='asis', comment=NA}
+n2 <- nPlot(~ Hair, data = hair_eye_male, type = "pieChart")
+n2$print("chart4")
+```
+
+
+Donut Chart:
+
+```{r, echo=FALSE, cache=TRUE, results='asis', comment=NA}
+p5 <- nPlot(~ gear, data = mtcars, type = 'pieChart')
+p5$chart(donut = TRUE)
+p5$print("chart5")
+```

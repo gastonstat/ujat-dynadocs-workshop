@@ -1,0 +1,20 @@
+---
+title: "Session 3: Slides"
+subtitle: "Workshop on Dynamic Documents in R"
+author: "Gaston Sanchez"
+output: html_document
+---
+
+> ### Learning Objectives
+>
+> * Rmarkdown for slides
+> * Learn about the different slides formats
+
+-----
+
+## Slides
+
+- [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
+- [slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+- [revealjs](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+- [beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html)

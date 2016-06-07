@@ -1,0 +1,16 @@
+% !Rnw root = ../rnw-book.Rnw
+
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+I didn't enjoy my years as an undergraduate college student. Mostly because I was a total misfit. But as years have gone by, I've been able to identify a crucial missing link in my early formal education: \textit{data visualization}. Yes, I know it sounds crazy but I'm absolutely positive that things would have been radically different had I only been exposed early on my data crunching career to the fascinating world of charts, plots, graphics, and diagrams.
+
+During my undergrad years I took courses such as geometry, algebra, calculus, probability, and statistics, but I never had the chance to see a lot of graphics. There were many equations for sure. But almost no graphics. One of the rare charts were some population pyramids in my Demography course, and some basic charts during my ``advanced'' \textit{Excel} course. The last time I checked the program offered by my college (not very long ago), I discoverd some changes. But not the changes I was expecting. There are more courses on economics, management, and finance. Sadly, there's still no dedicated data visualization material.
+
+
+\subsection*{Acknowledgements}
+I want to thank my sensei Tomas Aluja for showing me the landscape of exploratory methods and for introducing me to the fascinating world of data analysis techniques for dimension reduction.
+
+Gaston Sanchez \\
+Berkeley, California \\
+April 2015 \\

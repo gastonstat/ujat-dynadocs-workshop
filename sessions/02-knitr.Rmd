@@ -1,0 +1,123 @@
+---
+title: "Session 2: R package knitr"
+subtitle: "Workshop on Dynamic Documents in R"
+author: "Gaston Sanchez"
+output: html_document
+---
+
+> ### Learning Objectives
+>
+> * Intro to the R package `"knitr"`
+> * Know the basics about `"knitr"`
+> * Understand the meanings of common chunk options
+> * Knit Rmd files
+
+-----
+
+## What is `"knitr"`?
+
+`"knitr"` is an R package that "Provides a general-purpose tool for dynamic 
+report generation in R using Literate Programming techniques."
+
+More technical details available at [yihui.name/knitr](http://yihui.name/knitr/) 
+
+
+## About Literate Programming
+
+Donald Knuth coined the term __"Literate Programming"__ 
+
+> I believe that the time is ripe for significantly better documentation of 
+> programs, and that we can best achieve this by considering programs to be 
+> works of literature. Hence, my title: "Literate Programming."
+> 
+> Let us change our traditional attitude to the construction of programs: 
+> Instead of imagining that our main task is to instruct a computer what to do, 
+> let us concentrate rather on explaining to human beings what we want a 
+> computer to do.
+
+(1984) Literate Programming. CSLI, 1992, pg. 99.
+
+
+## About `"knitr"`
+
+```r
+install.packages("knitr")
+```
+
+- an R package
+- document formats
+	+ `.Rnw` (R + LaTeX)
+	+ `.Rmd` (R + Markdown)
+	+ any computing language + any authoring language (in theory)
+- editors
+	+ RStudio
+	+ LyX
+- resources
+	+ [http://yihui.name/knitr](http://yihui.name/knitr)
+	+ _Dynamic Documents with R and knitr_ (Chapman & Hall, 2013)
+
+
+### Let's see an example
+
+[Minimal example](https://github.com/gastonstat/ujat-dynadocs-workshop/blob/master/examples/01-rmd-minimal/01-rmd-minimal.Rmd)
+
+
+### Text output
+
+- `echo`: TRUE/FALSE, c(i1, i2, ...), -i3
+- `results`: 
+	+ markup
+	+ hide
+	+ hold
+	+ asis
+- `collapse`: 
+	+ TRUE
+	+ FALSE
+- `warning`, `error`, `message`
+- `strip.white`
+- `include`
+
+
+### Graphics
+
+- `fig.width`, `fig.height`
+- `out.width`, `out.height`, `fig.retina`
+- `fig.cap`
+- `fig.path`
+- `fig.keep`
+- `fig.show`
+
+
+
+### Your Turn
+
+Open a new `.Rmd` file. Write some content in Markdown that includes:
+
+1. headings of different levels
+2. words in italics
+3. words in bold
+4. words in both italics and bold
+5. links (for urls)
+6. reference style links (cross-links)
+7. links for images
+8. unordered lists
+9. ordered lists
+10. lists with subitems
+11. horizontal rules 
+12. table
+13. blockquotes
+14. code blocks
+15. inline code
+
+knit the file with your content
+
+
+-----
+
+## Resources
+
+- [http://yihui.name/knitr](http://yihui.name/knitr)
+- _Dynamic Documents with R and knitr_ (Chapman & Hall, 2013)
+- [knitr reference card](https://cran.r-project.org/web/packages/knitr/vignettes/knitr-refcard.pdf)
+
+-----

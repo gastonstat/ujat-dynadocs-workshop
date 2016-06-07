@@ -1,0 +1,69 @@
+---
+title: "Slides"
+subtitle: "Using beamer"
+author: |
+  | Your Name
+  | UJAT
+date: "Today's date"
+output: beamer_presentation
+---
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+# packages
+library(xtable)
+library(ggplot2)
+```
+
+
+# HTML5 Slides
+
+## Code chunks
+
+Here's a first __code chunk__ using the data set `cars` that comes in R
+
+```{r}
+summary(cars)
+```
+
+## More chunks
+
+Here's another chunk:
+
+```{r}
+# matrix of correlation
+cor(cars)
+```
+
+
+# Plots
+
+## Basic Plot
+
+```{r echo = FALSE}
+plot(cars)
+```
+
+## Fancy Plot
+
+```{r echo = FALSE}
+p <- ggplot(data = cars, aes(x = speed, y = dist)) +
+  geom_point(col = '#FF7722')
+p
+```
+
+
+## Inline code
+
+You can also include __inline code__. For example, `cars` has `r nrow(cars)`
+rows. The average speed is `r mean(cars$speed)`.
+
+
+## Some Equations
+
+Likewise, it is possible to include equations. We can write a model like this:
+$$
+dist = f(speed)
+$$
+
+
+

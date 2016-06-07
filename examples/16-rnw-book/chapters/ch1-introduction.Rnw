@@ -1,0 +1,38 @@
+% !Rnw root = ../rnw-book.Rnw
+
+
+\chapter{Introduction}
+First some definitions. We'll consider a data set to be integrated by a group of \textit{individuals} or observations on which we observe or measure one or more characteristics called \textit{variables}.
+
+Individuals can be people, animals, objects, planets, plants, countries, etc. Terminology is abundant and you'll find synonym terms such as cases, objects, items?, samples?
+
+A \textbf{variable} is any characteristic of an individual. Sometimes we refer to variables as features, aspects, indicators, or descriptors. The idea is that an individual is describes by one or more variables.
+
+
+\section{Categorical Variables}
+A \textbf{categorical} variable is a variable that takes values representing one or more categories. We also call them \textit{qualitative} variables because they describe qualities of the observed individuals. This is in contrast with \textit{quantitative} variables that takes numerical values representing quantities, and for which arithmetic operations such as adding or calculating differences make sense.
+
+Typical examples of categorical variables are things like gender (female, male), hair color (e.g. black, brown, blod, red), icecream flavors (e.g. chocolate, vanilla, lemon, coffee), cloth sizes (e.g. small, medium, large), or college years (e.g. freshman, sophomore, junior, senior). Notice that in all these cases we are using values that do not reflect quantification. 
+
+
+\subsection{Levels of Measurement}
+Categorical variables can be divided in two main groups according to their scale. On one hand we have \textbf{nominal} variables, on the other hand we have \textbf{ordinal} variables.
+
+Nominal variables refer to categories that have no natural order. The term \textit{nominal} according the dictionary means ``existing in name only''. Thus, nominal values are just that: names. Icecream flavors is one example of a nominal variable. There is no reason why chocolate is better or greater than vanilla. You could say that you prefer chocolate over vanilla but that's a different variable: personal preference. 
+
+
+We can find categorical data under a wide range of formats. I've seen categorical data codified in different ways, and sometimes people are very creative in the way they store it.
+
+The main types of formats can be classified in three main groups:
+\begin{itemize}
+ \item text or characters
+ \item numbers (ideally integers)
+ \item logical (TRUE / FALSE), typically for binary variables
+\end{itemize}
+
+Here's an example with a ``gender'' variable:
+\begin{itemize}
+ \item as text: \code{"F"} (female), \code{"M"} (male)
+ \item as numbers: 1 (female), 0 (male)
+ \item as logical: \code{TRUE} (female), \code{FALSE} (male)
+\end{itemize}

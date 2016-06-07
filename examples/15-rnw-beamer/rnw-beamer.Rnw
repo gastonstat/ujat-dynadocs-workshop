@@ -1,0 +1,73 @@
+\documentclass[12pt]{beamer}
+
+% packages
+\usepackage{float}
+
+% get rid of junk
+\beamertemplatenavigationsymbolsempty
+\hypersetup{pdfpagemode=UseNone} % don't show bookmarks on initial view
+\setbeamertemplate{note page}[plain]
+
+% title info
+\title{R Basic Graphics}
+\subtitle{Base Graphics in R}
+\author{Gaston Sanchez}
+\date{}
+
+% knitr settings
+<<setup, include=FALSE>>=
+# smaller font size for chunks
+opts_chunk$set(size = 'scriptsize')
+#thm <- knit_theme$get("bclear")
+#knit_theme$set(thm)
+options(width=78)
+@
+
+\begin{document}
+
+\frame{\titlepage} 
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{R Graphics}
+
+\begin{itemize}
+  \item R has a number of functions that produce graphics on screen.
+  \item When these functions are called, a graphics window is opened on screen (if one is not already open) and the graphs are drawn or rendered there.
+  \item Some functions draw an entire graph with a single function call; they are called high-level graphics functions.
+  \item Other graphics functions are used to build up graphs incrementally; they are called low-level graphics functions.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The \texttt{plot()} Function}
+
+\begin{itemize}
+  \item The most basic plotting function is called plot.
+  \item It takes a set of $x$ and $y$ coordinates and produces a plot based on those coordinates.
+  \item The simplest plot is a simple scatterplot, but optional arguments make it possible to produce a variety of different plot styles.
+  \item Other optional arguments control features such as axis labelling and annotation.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{\texttt{plot()} example}
+
+<<scatter1, fig.width=6, fig.height=4, out.width='.8\\linewidth', out.height='.5\\linewidth', fig.align='center'>>=
+xvals <- 1:100
+yvals <- rnorm(100)
+plot(xvals, yvals)
+@
+
+\end{frame}
+
+%------------------------------------------------
+
+\end{document}

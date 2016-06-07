@@ -25,7 +25,7 @@ of authoring tools in R (e.g. knitr, rmarkdown, shiny).
 - Become familiar with the Markdown syntax
 - Produce documents in a variety of output formats
 - Think about how to organize medium-size projects
-- Introduction to the Open Science Framework (OSF)
+- Introduction to the Open Science Framework (OSF), if time permits.
 
 
 ## Requirements
@@ -67,16 +67,6 @@ Make sure you have installed the following software:
 
 
 
-    Time        Tuesday    Wednesday    Thursday     Friday
--------------  ---------  -----------  ----------  ----------
-08:00 - 09:00             session 2    session 4   session 6
-09:00 - 10:00             session 2    session 4   session 6
-10:00 - 11:00             break        break        
-11:00 - 12:00             session 3    session 5      
-12:00 - 13:00  session 1  session 3    session 5    
-13:00 - 14:00  session 1                        
-
-
 ### Session 1
 
 - __Houston we have a problem:__ What's wrong with the traditional way
@@ -84,16 +74,16 @@ of creating documents.
 - Introduction to Markdown
 	+ Basics of Markdown syntax
 	+ Markdown Online editor: [http://markdownlivepreview.com/](http://markdownlivepreview.com/)
-- Getting to know `Rmd` files (and the R package "rmarkdown")
+- Getting to know `Rmd` files (and the R package ["rmarkdown"](http://rmarkdown.rstudio.com/))
 
 ### Session 2
 
-- Introduction to the R package "knitr"
+- Introduction to the R package ["knitr"](http://yihui.name/knitr/)
 - Code chunks
 - Inline code
 - Graphics
 - Tables
-- From `.Rmd` to html, pdf, word
+- From `.Rmd` files to html, pdf, word
 
 ### Session 3
 
@@ -104,7 +94,7 @@ of creating documents.
 
 ### Session 4
 
-- Rnw files and LaTeX
+- `Rnw` (R noweb) files and LaTeX
 - Working with multiple files
 - Code externalization
 - knitr `children`
@@ -135,8 +125,8 @@ Math Department at Berkeley City College.
 
 Currently he teaches an array of courses about Computing with Data,
 Reproducible and Collaborative Statistical Data Science, and Computational 
-Statistics. He is the author of various R packages; has written extensively about 
-the history of Partial Least Squares; and he is an advocate of the 
+Statistics. He is the author of various R packages; has written extensively 
+about the history of Partial Least Squares; and he's also an advocate for the 
 Open Science movement.
 
 Read more: [gastonsanchez.com/about](http://gastonsanchez.com/about)

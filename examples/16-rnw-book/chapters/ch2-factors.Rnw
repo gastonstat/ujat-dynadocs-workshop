@@ -1,0 +1,100 @@
+% !Rnw root = ../rnw-book.Rnw
+
+
+\chapter{Categorical Data in R}
+I'm one of those with the humble opinion that great software for data science and analytics should have a data structure dedicated to handle categorical data. Lucky for us, \R{} is one of the greatest. In case you're not aware, one of the nicest features about \R{} is that it provides a data structure exclusively designed to handle categorical data: \textbf{factors}.
+
+The term ``factor'' as used in \R{} for handling categorical variables, comes from the terminology used in \textit{Analysis of Variance}, commonly referred to as ANOVA. In this statistical method, a categorical variable is commonly referred to as \textit{factor} and its categories are known as \textit{levels}. Perhaps this is not the best terminology but it is the one \R{} uses, which reflects its distinctive statistical origins. Especially for those users without a brackground in statistics, this is one of \R{}'s idiosyncracies that seems disconcerning at the beginning. But as long as you keep in mind that a factor is just the object that allows you to handle a qualitative variable you'll be fine. In case you need it, here's a short mantra to remember: \textit{``factors have levels''}.
+
+
+\section{Creating Factors}
+To create a factor in \R{} you use the homonym function \code{factor()}, which takes a vector as input. The vector can be either numeric, character or logical. Let's see our first example:
+
+<<factor_function>>=
+# numeric vector
+num_vector <- c(1, 2, 3, 1, 2, 3, 2)
+
+# creating a factor from num_vector
+first_factor <- factor(num_vector)
+
+first_factor
+@
+
+As you can tell from the previous code snippet, \code{factor()} converts the numeric vector \code{num\_vector} into a factor (i.e. a categorical variable) with 3 categories ---the so called \code{levels}. 
+
+You can also obtain a factor from a string vector:
+<<str_into_factor>>=
+# string vector
+str_vector <- c('a', 'b', 'c', 'b', 'c', 'a', 'c', 'b')
+
+str_vector
+
+# creating a factor from str_vector
+second_factor <- factor(str_vector)
+
+second_factor
+@
+Notice how \code{str\_vector} and \code{second\_factor} are displayed. Even though the elements are the same in both the vector and the factor, they are printed in different formats. The letters in the string vector are displayed with quotes, while the letters in the factor are printed without quotes.
+
+
+And of course, you can use a logical vector to generate a factor as well:
+<<logical_into_factor>>=
+# logical vector
+log_vector <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+
+# creating a factor from log_vector
+third_factor <- factor(log_vector)
+
+third_factor
+@
+
+
+
+\subsection{How \R{} treats factors?}
+If you're curious and check the technical \textit{R Language Definition}, available online \url{https://cran.r-project.org/manuals.html}, you'll find that \R{} factors are referred to as \textit{compound objects}. According to the manual: ``Factors are currently implemented using an integer array to specify the actual levels and a second array of names that are mapped to the integers.'' Essentially, a factor is internally stored using two arrays: one is an integer array containing the values of categories, the other array is the ``levels'' which has the names of categories which are mapped to the integers.
+
+Under the hood, the way \R{} stores factors is as vectors of integer values. One way to confirm this is using the function \code{storage.mode()}
+<<storage_of_factor>>=
+# storage of factor
+storage.mode(first_factor)
+@
+
+
+This means that we can manipulate factors just like we manipulate vectors. In addition, many functions for vectors can be applied to factors. For instance, we can use the function \code{length()} to get the number of elements in a factor:
+<<length_of_factor>>=
+# factors have length
+length(first_factor)
+@
+
+We can also use the square brackets \code{[ ]} to extract or select elements of a factor. Inside the brackets we specify vectors of indices such as numeric vectors, logical vectors, and sometimes even character vectors.
+<<brackets_on_factor>>=
+# first element
+first_factor[1]
+# third element
+first_factor[3]
+# second to fourth elements
+first_factor[2:4]
+# last element
+first_factor[length(first_factor)]
+# logical subsetting
+first_factor[rep(c(TRUE, FALSE), length.out = 7)]
+@
+
+If you have a factor with named elements, you can also specify the names of the elements within the brackets:
+<<>>=
+names(first_factor) <- letters[1:length(first_factor)]
+first_factor
+
+first_factor[c('b', 'd', 'f')]
+@
+
+
+However, you should know that factors are NOT really vectors. To see this you can check the behavior of the functions \code{is.factor()} and \code{is.vector()} on a factor:
+<<factor_not_vector>>=
+# factors are not vectors
+is.vector(first_factor)
+
+# factors are factors
+is.factor(first_factor)
+@
+
