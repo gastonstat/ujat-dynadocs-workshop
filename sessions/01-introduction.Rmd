@@ -9,7 +9,7 @@ output: html_document
 >
 > * Gain familiarity with the Markdown syntax
 > * Write simple documents in Markdown
-> * Learn how to convert markdown documents into other formats with __pandoc__
+> * 
 
 -----
 
