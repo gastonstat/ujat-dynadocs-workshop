@@ -1,0 +1,47 @@
+---
+title: "Practica"
+date: "Jun 9, 2016" 
+runtime: shiny
+output: html_document
+---
+
+```{r echo=FALSE, warning=FALSE}
+library(babynames)
+library(ggplot2)
+```
+
+## Analisis
+
+Por favor introduce un nombre:
+
+```{r echo=FALSE}
+textInput(inputId = "nombre", label = "Name:", value = "Gaston")
+datos <- reactive(subset(babynames, name == input$nombre))
+renderText(dim(datos()))
+```
+
+
+## Grafica de Tendencia
+
+```{r echo=FALSE}
+renderPlot(
+  ggplot(data = datos(), aes(x = year, y = n)) +
+    geom_line(aes(color = sex)) +
+    ylab("frecuencia") +
+    ggtitle("Tendencia Historica") +
+    scale_color_manual(values = c("M" = "#0000FF", "F" = "#FF0000"))
+)
+```
+
+## Otros detalles
+
+Numero total de personas llamadas 
+**`r renderText(input$nombre)`** 
+ha sido __`r renderText(sum(datos()$n))`__
+
+El año de mayor popularidad es 
+__*`r renderText(datos()$year[which.max(datos()$n)])`*__
+
+```{r echo = FALSE}
+renderTable(summary(datos()))
+```
