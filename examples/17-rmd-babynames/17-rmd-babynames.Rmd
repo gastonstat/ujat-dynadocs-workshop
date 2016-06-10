@@ -1,0 +1,42 @@
+---
+title: "Practica"
+output: html_document
+---
+
+```{r echo = FALSE, warning=FALSE}
+library(babynames)
+library(ggplot2)
+```
+
+Analisis de mi nombre.
+Creamos una variable `nombre`:
+```{r}
+nombre = "Gaston"
+```
+
+```{r echo = FALSE}
+datos <- subset(babynames, name == nombre)
+dim(datos)
+```
+
+
+## Grafica de Tendencia
+
+```{r echo=FALSE, fig.width=5}
+ggplot(data = datos, aes(x = year, y = n)) +
+  geom_line(aes(color = sex)) +
+  ylab("frecuencia") +
+  ggtitle("Tendencia Historica") +
+  scale_color_manual(values = c("M" = "blue", "F" = "red"))
+```
+
+
+## Otros detalles
+
+Numero total de personas llamadas `r nombre` 
+ha sido `r sum(datos$n)`
+
+El año de mayor popularidad es 
+`r datos$year[which.max(datos$n)]`
+
+
