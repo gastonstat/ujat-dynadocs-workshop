@@ -1,0 +1,25 @@
+---
+title: "Report"
+subtitle: "Code externalization"
+author: "Your Name"
+date: "Jun 10, 2016"
+output: html_document
+---
+
+```{r}
+library(knitr)
+read_chunk("../code/analysis.R")
+```
+
+
+```{r read-table, echo=FALSE}
+```
+
+The file `auto-mpg.data` has dimensions:
+```{r dimensions}
+```
+
+Here are some descriptive statistics:
+```{r summary}
+```
+
