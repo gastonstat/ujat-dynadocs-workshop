@@ -94,17 +94,17 @@ of creating documents.
 
 ### Session 4
 
-- `Rnw` (R noweb) files and LaTeX
+- `Rnw` (R noweb) files and LaTeX (not covered)
+- Interactive documents with shiny
+- Reactive objects
+- Widgets
+
+### Session 5
+
 - Working with multiple files
 - Code externalization
 - knitr `children`
 - Modularizing a project
-
-### Session 5
-
-- Interactive documents with shiny
-- Reactive objects
-- Widgets
 
 ### Session 6
 
