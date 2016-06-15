@@ -3,7 +3,7 @@
 This repository contains the materials for the summer 2016 edition of the
 workshop _Dynamic Documents in R_ held at the 
 [Division Academica de Ciencias Basicas](http://www.ujat.mx/dacb),
-Universidad Juarez Autonoma de Tabasco (UJAT).
+Universidad Juarez Autonoma de Tabasco (UJAT), Jun 7-10.
 
 
 Author: [Gaston Sanchez](http://gastonsanchez.com)
